@@ -4,17 +4,18 @@
 
 <h1 align="center"> Submit a GTA application </h1>
 
-<div id="form"><form>
+<div id="form">
 <fieldset>
 <legend> Application Information:</legend>
 <br>
+<form action="form_submit_GTA.php" method="post">
 First name: <input type="text" name="GTAname"><br>
 Last name: <input type="text" name="GTAlname"><br>
 Your PID: <input type="text" name="GTAPID"><br>
 Your Email: <input type="text" name="GTAemail"><br>
 Your Phone: <input type="text" name="GTAphone"><br>
 
-Are you a Ph.D. student in Computer Science? 
+Are you a Ph.D. student in Computer Science?
             <select>
                 <option value = "-">-</option>
                 <option value = "Yes">Yes</option>
@@ -32,7 +33,7 @@ Have you passed the SPEAK Test?
             </select>
             <br>
 Semesters working as a GTA: <input type="text" name="GTAworkingsemestercount"><br>
-Graduate level courses completed, and grade awarded:<br> 
+Graduate level courses completed, and grade awarded:<br>
         <input type= "text" name="Gradcourse">
             <select>
                 <option
@@ -44,7 +45,7 @@ Graduate level courses completed, and grade awarded:<br>
                     <option value="F">F</option>
             </select>
             <br>
-            
+
         <input type= "text" name="Gradcourse">
             <select>
                 <option
@@ -56,7 +57,7 @@ Graduate level courses completed, and grade awarded:<br>
                     <option value="F">F</option>
             </select>
             <br>
-            
+
         <input type= "text" name="Gradcourse">
             <select>
                 <option
@@ -68,7 +69,7 @@ Graduate level courses completed, and grade awarded:<br>
                     <option value="F">F</option>
             </select>
             <br>
-            
+
         <input type= "text" name="Gradcourse">
             <select>
                 <option
@@ -80,7 +81,7 @@ Graduate level courses completed, and grade awarded:<br>
                     <option value="F">F</option>
             </select>
             <br>
-            
+
         <input type= "text" name="Gradcourse">
             <select>
                 <option
@@ -92,7 +93,7 @@ Graduate level courses completed, and grade awarded:<br>
                     <option value="F">F</option>
             </select>
             <br>
-            
+
         <input type= "text" name="Gradcourse">
             <select>
                 <option
@@ -104,7 +105,7 @@ Graduate level courses completed, and grade awarded:<br>
                     <option value="F">F</option>
             </select>
             <br>
-            
+
         <input type= "text" name="Gradcourse">
         <select>
                 <option
@@ -116,7 +117,7 @@ Graduate level courses completed, and grade awarded:<br>
                     <option value="F">F</option>
             </select>
             <br>
-            
+
 Cumulative G.P.A for the above courses: <input type="text" name="totalGPA"><br>
 List of publications (With Citations):  <br>
 
@@ -125,10 +126,10 @@ List of publications (With Citations):  <br>
         Publication: <input type= "text" name="publication">; Citation: <input type= "text" name="citation"><br>
         Publication: <input type= "text" name="publication">; Citation: <input type= "text" name="citation"><br>
         Publication: <input type= "text" name="publication">; Citation: <input type= "text" name="citation"><br>
-        
+
 
 Name of Ph.D. advisor: <input type="text" name="GTAadvisor"><br>
-Names and Time Periods With Previous Ph.D. Advisor(s): 
+Names and Time Periods With Previous Ph.D. Advisor(s):
         Name: <input type="text" name="advisor">; Time With advisor: <input type= "text" name="timeSpent"><br>
         Name: <input type="text" name="advisor">; Time With advisor: <input type= "text" name="timeSpent"><br>
         Name: <input type="text" name="advisor">; Time With advisor: <input type= "text" name="timeSpent"><br>
@@ -136,8 +137,9 @@ Names and Time Periods With Previous Ph.D. Advisor(s):
 Current Time: <input type="time" name="timestamp" step="1"><br>
 
 Be sure to remind your academic advisor to submit the support letter before your deadline.
-<input type="submit" value="Submit">
+<input type="submit">
+</form>
 </fieldset>
-</form></div>
+</div>
 
 </body>
