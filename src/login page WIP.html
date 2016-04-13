@@ -1,16 +1,57 @@
 <!doctype html>
 
-<p>page currently under construction, links are provided at the bottom to forward to the user interfaces for the different client types, </p><br>
-<p>after our database is set up, user authentication will be included to forward logged in users to their proper user interfaces</p>
+<style>
+body 
+{
+    background-color: lightblue;
+}
+</style>
 
+<style>
+input[type=text], select{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid lightblue;
+        border-radius: 4px;
+        box-sizing: border-box;
+}
+
+input[type=submit]:hover{ background-color: lightGreen;}
+
+input[type=submit]{
+        width: 100%;
+        background-color: green;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+
+}
+
+div {
+    border: 8px solid darkblue;
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 40px;
+}
+
+</style>
+
+<h1 align="center"> Welcome to the GTAMS web-app, please log in below! </h1>
+
+<br><br>
 <section class="login page">
 <div><form name="login" action="index_submit" method="get" accept-charset="utf-8">
 
     <ul>
         <label for="userID" >Network ID
-        <input type="universityID" name="userID" placeholder="university ID" required><br>
+        <input type="text" name="userID" id="userID" placeholder="university ID" required><br>
         <label for="userPassword" >Network Password</label>
-        <input type="userPassword" name="userPassword" placeholder="your password" required><br>
+        <input type="text" id="userPassword" name="userPassword" placeholder="your password" required><br>
         <input type="submit" value="login">
         
         <script type="text/javascript">
