@@ -1,21 +1,37 @@
 <!doctype html>
 
-<h1 align="center"> Current Information on File </h1>
+<html>
 
+
+<head>
+<h1 align="center">Current Information on File</h1>
+</script>
+</head>
+
+<p>Average score will be updated upon submission of changes</p>
+
+<div id="scoreInfo"><form>
 <fieldset>
 <legend></legend>
 <br>
 
-<table style="width:100%">
+<table style="width:100%" id="scoreTable" class="tablesorter">
+<thead>
     
     <tr>
     <th align="left"> Name of nominator </th>
     <th align="left"> Name of nominee </th>
     <th align="left"> Ranked by nominator </th>
     <th align="left"> Existing or New Student </th>
-    <th align="left"> Score for GC member </th>
-    <th align="left"> Average score </th>
+    <th align="left"> Score for GC member1 </th> 
+    <th align="left"> Score for GC member2 </th>
+    <th align="left"> Score for GC member3 </th>     
+    <th align="left"> Average score</th>
     </tr>
+    </thead>
+    
+    
+    <tbody id="tableData">
     
 
     <tr>
@@ -23,28 +39,79 @@
         <td><a href="file:///C:/Users/Mark/Desktop/html%20files/applicant%20popup%20window.html" target="popup" onclick="window.open('file:///C:/Users/Mark/Desktop/html%20files/applicant%20popup%20window.html', 'popup', 'width=600, height=400')">Btest</a></td>
         <td>123</td>
         <td>New Student</td>
-        <td>123</td>
-        <td>123</td>
+        <td> <input type="text" name="score1A"></td>
+        <td><input type="text" name="score1B"></td>
+        <td><input type="text" name="score1C"></td>
+        <td><input type="text" name="score1D"></td>
     </tr>
+    
+    
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="text" name="comment1A"></td>
+        <td><input type="text" name="comment2B"></td>
+        <td><input type="text" name="comment3C"></td>
+    </tr>
+    
     
     <tr>
         <td>Ctest</td>
         <td><a href="file:///C:/Users/Mark/Desktop/html%20files/applicant%20popup%20window.html" target="popup" onclick="window.open('file:///C:/Users/Mark/Desktop/html%20files/applicant%20popup%20window.html', 'popup', 'width=600, height=400')">Dtest</a></td>
         <td>456</td>
         <td>Existing Student</td>
-        <td>456</td>
-        <td>456</td>
+        <td> <input type="text" name="score2A"></td>
+        <td><input type="text" name="score2B"></td>
+        <td><input type="text" name="score2C"></td>
+        <td><input type="text" name="score2D"></td>
     </tr>
+    
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="text" name="comment1A"></td>
+        <td><input type="text" name="comment2B"></td>
+        <td><input type="text" name="comment3C"></td>
+    </tr>
+    
     
     <tr>
         <td>Etest</td>
         <td><a href="file:///C:/Users/Mark/Desktop/html%20files/applicant%20popup%20window.html" target="popup" onclick="window.open('file:///C:/Users/Mark/Desktop/html%20files/applicant%20popup%20window.html', 'popup', 'width=600, height=400')">Ftest</a></td>
         <td>789</td>
         <td>Existing Student</td>
-        <td>789</td>
-        <td>789</td>
+        <td> <input type="text" name="score3A"></td>
+        <td><input type="text" name="score3B"></td>
+        <td><input type="text" name="score3C"></td>
+        <td><input type="text" name="score3D"></td>
     </tr>
+    
+        <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><input type="text" name="comment1A"></td>
+        <td><input type="text" name="comment2B"></td>
+        <td><input type="text" name="comment3C"></td>
+    </tr>
+    
+    </tbody>
 </table>
-
-
 </fieldset>
+<p align="center">Click below to accept changes<br> <input type="submit" value="Submit"> </p> 
+</form> </div>
+
+<br>
+
+<br>
+<p align="center"><a href= "file:///C:/Users/Mark/Desktop/html%20files/incomplete%20nominees.html"> Check incomplete nominees </a></p>
+<br>
+
+<p align="center"><a href = "file:///C:/Users/Mark/Desktop/html%20files/user%20interface.html"> Home </a> <br>
+</p>
+</html>

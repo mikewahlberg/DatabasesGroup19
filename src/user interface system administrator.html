@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html>
+
+<h1 align="center"> Welcome System Administrator!</h1>
+<p align="center"> Below you may set up a new application acceptance session </p>
+
+<div id="newSessionInfo">
+<form>
+<fieldset>
+
+<legend> Please specify the parameters of the new session </legend>
+<br>
+
+Semester of new application deadline:
+    <select name="applyDeadline">
+        <option value = "-">-</option>
+        <option value = "Fall">Fall</option>
+        <option value = "Spring">Spring</option>
+        <option value = "SummerA">Summer A</option>
+        <option value = "SummerB">Summer B</option>
+        <option value = "SummerC">Summer C</option>    
+    </select>
+    
+    year:<input type="text" name="applyDeadlineYear" placeholder="e.g. 2016">
+    <br>
+    <br>
+    
+Names of current GC members and their account information 
+    <br>
+    GC member:<input type="text" name="GCmember1"> Email: <input type="text" name="GCemail1"> <br>
+    Login ID: <input type="text" name="GClogin1"> Password: <input type="text" name="GCpassword1"> <br><br>
+    GC member:<input type="text" name="GCmember2"> Email: <input type="text" name="GCemail2"> <br>
+    Login ID: <input type="text" name="GClogin2"> Password: <input type="text" name="GCpassword2"> <br><br>
+    GC member:<input type="text" name="GCmember3"> Email: <input type="text" name="GCemail3"> <br>
+    Login ID: <input type="text" name="GClogin3"> Password: <input type="text" name="GCpassword3"> <br><br>
+    GC member:<input type="text" name="GCmember4"> Email: <input type="text" name="GCemail4"> <br>
+    Login ID: <input type="text" name="GClogin4"> Password: <input type="text" name="GCpassword4"> <br><br>
+    GC member:<input type="text" name="GCmember5"> Email: <input type="text" name="GCemail5"> <br>
+    Login ID: <input type="text" name="GClogin5"> Password: <input type="text" name="GCpassword5"> <br><br>
+
+    <br><br>
+    
+Name of the current GC Chair: <input type="text" name="GCchair">
+<br>
+
+Deadline for uploading letters of referece: 
+    <select name="letterDeadline">
+        <option value = "-">-</option>
+        <option value = "Fall">Fall</option>
+        <option value = "Spring">Spring</option>
+        <option value = "SummerA">Summer A</option>
+        <option value = "SummerB">Summer B</option>
+        <option value = "SummerC">Summer C</option>    
+    </select>
+    
+    year:<input type="text" name="letterDeadlineYear" placeholder="e.g. 2016">
+    
+</fieldset>
+</form>
+</div>
+</html>

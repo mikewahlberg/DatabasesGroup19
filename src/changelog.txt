@@ -1,16 +1,49 @@
+Future updates...
+
 score table- Needs to be sortable, and integrate SQL, alter link sources once html files are uploaded to a shared server,
-		user entered scoring with explaination fields
+		make table score values default to either 0 or to current database entry, generate table size based on numer of entries in sql database
 
-GTAapplication- SQL integration, timestamp functionality; server side or client side?, display missing deadline based on
-		timestamp
+GTAapplication- SQL integration, display missing deadline based on
+		timestamp, improve automatic email functionality so that the email addresses will change based
+		on database records, and add in the two-day deadline email reminder
 
-popup window- SQL integration
+popup window- SQL integration for reading in data to be displayed
 
 incomplete nominees- table read user information source from SQL, also report binary reasoning for incompletion
 
-user interface- make it look pretty, add links to score table and incomplete nominees. menus?? integrate login on same page,
-		or use multiple pages?? Guess this is supposed to be homepage?
+user interface- make it look pretty. menus?? integrate login on same page,
+		or use multiple pages/ popup window method?
 
 Academic advisor- Letter of Rec. input, PDF upload, and automated reminders
 
+system administrator UI- automatic emailing functionality, and session storage to database so that it is accessable to 
+			 GC members after the deadline has passed.
+
+account information changing- sync with database to allow for account information to be found and replaced on request
+
 general navigation links across pages
+
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+4/5/2016 : GTA application now supports automatically generated timestamps, added some links for better navigation between
+	   homepage, and the pages it links out to, changed the incomplete nominees page to closer resemble the future 
+	   production instead of just being a complete placeholder page
+
+
+4/7/2016 : GTA application page has a prototyped automatic email function added to it, further development still required
+	   score table page has been altered to allow for input and altering of score values, as well as allowing for comment
+	   to be added underneath. Converted it from a static table to a submission field, but there are currently errors
+	   with it, so more development is needed here as well. Also added link to incompleted nominees page as per the 
+	   project description.
+
+4/7/2016 : User interfaces for GTA applicants, and GC members has been separated (users actually have different privileges now yay!),
+	   temporary backdoors added to login page to allow for development work while the database is being set up, added a page 
+	   redirect function to the login page which will be implemented once we have a user authentication system
+
+4/8/2016 : Prototype of system administrator user interface added to html cache, prototype of account information changing page added
+	   to the html cache, cleaned up some variable names that were being repeated and could have caused future record keeping issues
+
+4/12/2016: User interface for academic advisors added to the html files, along with functionality to input a letter of reference via text
+	   input or file upload.

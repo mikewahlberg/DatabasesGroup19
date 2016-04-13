@@ -1,13 +1,26 @@
 <!doctype html>
 
+<p>page currently under construction, links are provided at the bottom to forward to the user interfaces for the different client types, </p><br>
+<p>after our database is set up, user authentication will be included to forward logged in users to their proper user interfaces</p>
+
 <section class="login page">
-<form name="login" action="index_submit" method="get" accept-charset="utf-8">
+<div><form name="login" action="index_submit" method="get" accept-charset="utf-8">
+
     <ul>
         <label for="userID" >Network ID
         <input type="universityID" name="userID" placeholder="university ID" required><br>
         <label for="userPassword" >Network Password</label>
         <input type="userPassword" name="userPassword" placeholder="your password" required><br>
         <input type="submit" value="login">
+        
+        <script type="text/javascript">
+            document.getElementById("submit").onclick = function () {
+                location.href = "file:///C:/Users/Mark/Desktop/html%20files/user%20interface.html";};
+                </script>
+        
     </ul>
-</form>
+</form></div>
+<a href = "file:///C:/Users/Mark/Desktop/html%20files/user%20interface.html"> click here to go to the user interface for GC members </a><br>
+<a href= "file:///C:/Users/Mark/Desktop/html%20files/GTAapplication%20WIP.html"> click here to go to the user interface for GTA applicants </a> <br>
+<a href="file:///C:/Users/Mark/Desktop/html%20files/user%20interface%20system%20administrator.html"> click here to go to the user interface for system administrators </a><br>
 </section>    
