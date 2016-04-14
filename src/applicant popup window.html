@@ -1,13 +1,18 @@
 <!doctype html>
 
 <h1>Information on nominee</h1><br>
-
+ <?php
+  $link = mysql_connect("my host", "my user", "my password", "my db");
+  if(!$link){
+    die('Could not establish connection:' . mysql_error());
+  }
+ ?>
 <fieldset>
 
-Name of applicant: <br>
-PID of applicant: <br>
-Applicant's email: <br>
-Applicant's phone number: <br>
+Name of applicant: <?php mysql_query($link, "SELECT stu_first_name, stu_last_name FROM APPLICANT WHERE PID=$_GET["pid"]") ?><br>
+PID of applicant: <?php $_GET["pid"] ?><br>
+Applicant's email: <?php mysql_query($link, "SELECT stu_email FROM APPLICANT WHERE PID=$_GET["pid"]") ?><br>
+Applicant's phone number: <?php mysql_query($link, "SELECT stu_phone FROM APPLICANT WHERE PID=$_GET["pid"]") ?><br>
 Number of semesters applicant has been a grad student: <br>
 Number of semesters applicant has worked as a GTA: <br>
 Courses completed by applicant: <br>
