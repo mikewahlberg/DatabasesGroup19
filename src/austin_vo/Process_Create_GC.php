@@ -1,8 +1,8 @@
 <!--
 Group 19
 COP 4710
-Process_Create_Sessions
-	Inserts the sessions from Admine_Create_Session.php into the MySQL database.
+Process_Create_GC
+	Inserts the GC members from Admine_Create_GC.php into the MySQL database.
 -->
 <?php
 session_start();
@@ -57,14 +57,14 @@ a[type=logout]{
 
 <body>
 
-<h1 align="center">Creating GTA Sessions</h1>
-<p align="center">Please choose your parameters for creating your new GTA sessions.</p>
+<h1 align="center">Processing GC Members</h1>
+<p align="center">Determining if your new GC Members are valid.</p>
 
 <div id="newSessionInfo">
 
 <fieldset>
 
-<legend> GTA Sessions </legend>
+<legend>GC Members</legend>
 <br>
 	<center>
 	
@@ -82,24 +82,26 @@ a[type=logout]{
 		die("Connection failed: " . $conn->connect_error);
 	}
 	
-	for($i = 1; $i <= $_SESSION["NumSessions"]; $i++){
+	for($i = 1; $i <= $_SESSION["NumGC"]; $i++){
 		
 		// Create and execute MySQL query.
 		$sql =
-			"INSERT INTO gtams.gta_session
-			VALUES ('".$_GET["newSession$i"]."'
-			, '".$_GET["appDeadline$i"]."'
-			, '".$_GET["letterDeadline$i"]."');";
+			"INSERT INTO gtams.graduate_committee
+			VALUES ('".$_GET["FacID$i"]."'
+			,'".$_GET["FacFName$i"]."' 
+			,'".$_GET["FacLName$i"]."' 
+			,'".$_GET["FacEmail$i"]."'
+			, ".$_GET["FacChair$i"].");";
 		
 		$result = $conn->query($sql);
 		
 		if(!$result){
-			echo "<p>Inserting new sessions failed</p>";
+			echo "<p>Inserting new GC members failed</p>";
 			exit();
 		}
 	}
 	
-	echo "<p>Inserted all new sessions successfully.</p>";
+	echo "<p>Inserted all new GC members successfully.</p>";
 	$conn->close();
 	?>
 	
