@@ -4,48 +4,47 @@ COP 4710
 4-14-2016
 Login Page.
 -->
+<?php
+session_start();
+?>
 <!doctype html>
+<html>
+<head>
+	<title>COP 4710 - Group 19 - Login Page</title>
+	<style>
+	body {
+		background-color: lightblue;
+	}
+	input[type=text], select{
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid lightblue;
+			border-radius: 4px;
+			box-sizing: border-box;
+	}
+	
+	input[type=submit]:hover{ background-color: lightGreen;}
 
-<style>
-body 
-{
-    background-color: lightblue;
-}
-</style>
-
-<style>
-input[type=text], select{
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid lightblue;
-        border-radius: 4px;
-        box-sizing: border-box;
-}
-
-input[type=submit]:hover{ background-color: lightGreen;}
-
-input[type=submit]{
-        width: 100%;
-        background-color: green;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-
-}
-
-div {
-    border: 8px solid darkblue;
-    border-radius: 5px;
-    background-color: lightgray;
-    padding: 40px;
-}
-
-</style>
+	input[type=submit]{
+			width: 100%;
+			background-color: green;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+	}
+	div {
+		border: 8px solid darkblue;
+		border-radius: 5px;
+		background-color: lightgray;
+		padding: 40px;
+	}
+	</style>
+</head>
 
 <h1 align="center"> Welcome to the GTAMS web-app, please log in below! </h1>
 
@@ -69,4 +68,4 @@ div {
 <a href = "file:///C:/Users/Mark/Desktop/html%20files/user%20interface.html"> click here to go to the user interface for GC members </a><br>
 <a href= "file:///C:/Users/Mark/Desktop/html%20files/GTAapplication%20WIP.html"> click here to go to the user interface for GTA applicants </a> <br>
 <a href="file:///C:/Users/Mark/Desktop/html%20files/user%20interface%20system%20administrator.html"> click here to go to the user interface for system administrators </a><br>
-</section>    
+</section>

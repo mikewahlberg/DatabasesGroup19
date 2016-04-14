@@ -9,15 +9,59 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Process Login</title>
+	<title>COP 4710 - Group 19 - Process Login</title>
+	
+	<style>
+		body 
+		{
+			background-color: lightblue;
+		}
+
+		div {
+			border: 8px solid darkblue;
+			border-radius: 5px;
+			background-color: lightgray;
+			padding: 40px;
+		}
+
+		input[type=submit]:hover{ background-color: lightGreen;}
+
+		input[type=submit]{
+			width: 20%;
+			background-color: green;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+				
+		a[type=logout]{
+			width: 50%;
+			background-color: navy;
+			color: white;
+			padding: 5px 10px;
+			margin: 5px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
 </head>
+
 <body>
+
+<div id="newSessionInfo">
+
+<fieldset>
+
+<br>
 
 <?php
 	// Connecting to MySQL using mysqli
-	//echo nl2br("Connecting to MySQL Server Desktop Instance using mysqli...\n");
-
 	$servername = "127.0.0.1:3306";
 	$username = "root";
 	$password = "";
@@ -29,7 +73,6 @@ session_start();
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}
-	//echo nl2br("Connected successfully using mysqli\n\n");
 	
 	// Query to check of the login info was correct.
 	$sql =
@@ -66,7 +109,12 @@ session_start();
 	$result = $conn->query($sql);
 	
 	if ($result->num_rows == 1) {
+		//Keep the user "logged" in.
+		$_SESSION["CURRENT_USER"] = $_GET["userID"];
+		
 		echo nl2br("You are an ADMINISTRATOR</br></br>");
+		echo "<a href = 'Admin_Menu.html'>
+		<button>Proceed to the Admin Menu</button></a>";
 	}
 	else{
 		//This query tests if the user is a GC member.
@@ -79,7 +127,12 @@ session_start();
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows == 1) {
+			//Keep the user "logged" in.
+			$_SESSION["CURRENT_USER"] = $_GET["userID"];
+		
 			echo nl2br("You are a GC MEMBER</br></br>");
+			echo "<a href = 'GC_Menu.php'>
+				<button>Proceed to the Graduate Committee Menu</button></a>";
 		}
 		else{
 			echo nl2br("You are not an ADMIN or GC MEMBER</br></br>");
@@ -87,5 +140,8 @@ session_start();
 		}
 	}
 ?>
+</fieldset>
 
+</div>
 </body>
+</html>

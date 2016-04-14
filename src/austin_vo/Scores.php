@@ -7,14 +7,56 @@ Scores
 -->
 <?php
 session_start();
+$_SESSION["GCSession"] = $_GET["GCSession"];
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>COP 4710 - Group 19 - Scores</title>
+	
+	<style>
+		body 
+		{
+			background-color: lightblue;
+		}
+
+		div {
+			border: 8px solid darkblue;
+			border-radius: 5px;
+			background-color: lightgray;
+			padding: 40px;
+		}
+
+		input[type=submit]:hover{ background-color: lightGreen;}
+
+		input[type=submit]{
+			width: 20%;
+			background-color: green;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+				
+		a[type=logout]{
+			width: 50%;
+			background-color: navy;
+			color: white;
+			padding: 5px 10px;
+			margin: 5px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body>
-	<h1 align="center">Show all scores for all sessions, students, and GC members.</h1>
+	<h1 align="center">Scores for selected sessions, students, and GC members.</h1>
+	
+	<div id="newSessionInfo">
+	<fieldset>
 	
 	<form action='Process_Scores.php' method='GET'>
 	<table align='center'>
@@ -47,6 +89,9 @@ session_start();
 			gtams.member AS M ON
 				S.session_id = m.session_id
 				AND A.session_id = m.session_id
+		WHERE 
+			S.session_id = '".$_SESSION["GCSession"]."'
+			AND M.faculty_id = '".$_SESSION["CURRENT_USER"]."'
 		ORDER BY
 			S.session_id
 			,A.PID
@@ -83,8 +128,11 @@ session_start();
 	
 	?>
 	<tr><td><input type='submit'></td></tr>
+	
 	</table>
 	</form>
 
+	</fieldset>
+	</div>
 </body>
 </html>
