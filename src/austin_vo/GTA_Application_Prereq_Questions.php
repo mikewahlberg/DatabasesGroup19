@@ -10,14 +10,55 @@ Prereq Questions.
 session_start();
 ?>
 <!doctype html>
+
 <head>
 	<title>COP 4710 - Group 19 - Prereq Questions</title>
+	<style>
+
+	body 
+	{
+		background-color: lightblue;
+	}
+
+	div {
+		border: 8px solid darkblue;
+		border-radius: 5px;
+		background-color: lightgray;
+		padding: 40px;
+	}
+
+	input[type=submit]:hover{ background-color: lightGreen;}
+
+	input[type=submit]{
+			width: 20%;
+			background-color: green;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+			
+	a[type=logout]{
+			width: 50%;
+			background-color: navy;
+			color: white;
+			padding: 5px 10px;
+			margin: 5px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+	}
+	</style>
 </head>
+
 <body>
 
 <h1 align="center">Please answer these questions before submitting a GTA application. </h1>
 
-<p>!!!!!!!!!!This page is still under development, and emails will be automatically generated and sent out to a testing email address. This will happen EVERY time the submit button is clicked. If you want to play with the code and run some tests, the email address is "gtamsautomailtester@gmail.com" and the password is "ucfknights"!!!!!!!!!!!</p>
+<div id="newSessionInfo">
+<fieldset>
 
 <form action='GTA_Application.php' method='GET'>
 <table align='center'>
@@ -70,5 +111,6 @@ session_start();
 	<tr><td><input type='submit'></td></tr>
 </table>
 </form>
-
+</fieldset>
+</div>
 </body>

@@ -54,94 +54,96 @@ session_start();
 
 <body>
 
-<div id="newSessionInfo">
+	<div id="newSessionInfo">
+	<fieldset>
 
-<fieldset>
+	<br>
+	
+	<center>
+	
+	<?php
+		// Connecting to MySQL using mysqli
+		$servername = "127.0.0.1:3306";
+		$username = "root";
+		$password = "";
 
-<br>
+		// Create connection
+		$conn = new mysqli($servername, $username, $password);
 
-<?php
-	// Connecting to MySQL using mysqli
-	$servername = "127.0.0.1:3306";
-	$username = "root";
-	$password = "";
-
-	// Create connection
-	$conn = new mysqli($servername, $username, $password);
-
-	// Check connection
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
-	
-	// Query to check of the login info was correct.
-	$sql =
-	"SELECT faculty_id
-	FROM gtams.login
-	WHERE faculty_id = '".$_GET["userID"]."'
-	AND login_password = '".$_GET["userPassword"]."';";
-	
-	echo nl2br($sql . "</br></br>");
-	$result = $conn->query($sql);
-	
-	// Check if login is valid.
-	// A faculty_id must have a unique login.
-	if($result->num_rows <> 1) {
-		echo nl2br("LOGIN FAILED</br></br>");
-		exit();
-	}
-	
-	echo nl2br("LOGIN SUCCESSFUL</br></br>");
-	
-	// Create the cookie for the login.
-	$cookie_name = $_GET["userID"];
-	$cookie_value = $_GET["userPassword"];
-	setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-	
-	//Differentiate whether the login is a GC member or admin.
-	//This query tests if the user is an admin.
-	$sql =
-	"SELECT faculty_id
-	FROM gtams.administrators
-	WHERE faculty_id = '".$_GET["userID"]."';";
-	
-	echo nl2br($sql . "</br></br>");
-	$result = $conn->query($sql);
-	
-	if ($result->num_rows == 1) {
-		//Keep the user "logged" in.
-		$_SESSION["CURRENT_USER"] = $_GET["userID"];
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
 		
-		echo nl2br("You are an ADMINISTRATOR</br></br>");
-		echo "<a href = 'Admin_Menu.html'>
-		<button>Proceed to the Admin Menu</button></a>";
-	}
-	else{
-		//This query tests if the user is a GC member.
+		// Query to check of the login info was correct.
 		$sql =
 		"SELECT faculty_id
-		FROM gtams.graduate_committee
+		FROM gtams.login
+		WHERE faculty_id = '".$_GET["userID"]."'
+		AND login_password = '".$_GET["userPassword"]."';";
+		
+		//echo nl2br($sql . "</br></br>");
+		$result = $conn->query($sql);
+		
+		// Check if login is valid.
+		// A faculty_id must have a unique login.
+		if($result->num_rows <> 1) {
+			echo nl2br("<h1>LOGIN FAILED</h1></br></br>");
+			exit();
+		}
+		
+		echo nl2br("<h1>LOGIN SUCCESSFUL</h1></br></br>");
+		
+		// Create the cookie for the login.
+		$cookie_name = $_GET["userID"];
+		$cookie_value = $_GET["userPassword"];
+		setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+		
+		//Differentiate whether the login is a GC member or admin.
+		//This query tests if the user is an admin.
+		$sql =
+		"SELECT faculty_id
+		FROM gtams.administrators
 		WHERE faculty_id = '".$_GET["userID"]."';";
 		
-		echo nl2br($sql . "</br></br>");
+		//echo nl2br($sql . "</br></br>");
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows == 1) {
 			//Keep the user "logged" in.
 			$_SESSION["CURRENT_USER"] = $_GET["userID"];
-		
-			echo nl2br("You are a GC MEMBER</br></br>");
-			echo "<a href = 'GC_Menu.php'>
-				<button>Proceed to the Graduate Committee Menu</button></a>";
+			
+			echo nl2br("<h1>You are an ADMINISTRATOR</h1></br></br>");
+			echo "<a href = 'Admin_Menu.html'>
+			<button>Proceed to the Admin Menu</button></a>";
 		}
 		else{
-			echo nl2br("You are not an ADMIN or GC MEMBER</br></br>");
-			exit();
+			//This query tests if the user is a GC member.
+			$sql =
+			"SELECT faculty_id
+			FROM gtams.graduate_committee
+			WHERE faculty_id = '".$_GET["userID"]."';";
+			
+			//echo nl2br($sql . "</br></br>");
+			$result = $conn->query($sql);
+			
+			if ($result->num_rows == 1) {
+				//Keep the user "logged" in.
+				$_SESSION["CURRENT_USER"] = $_GET["userID"];
+			
+				echo nl2br("<h1>You are a GC MEMBER</h1></br></br>");
+				echo "<a href = 'GC_Menu.php'>
+					<button>Proceed to the Graduate Committee Menu</button></a>";
+			}
+			else{
+				echo nl2br("<h1>You are not an ADMIN or GC MEMBER</h1></br></br>");
+				exit();
+			}
 		}
-	}
-?>
-</fieldset>
-
-</div>
+	?>
+	
+	<center>
+	</fieldset>
+	</div>
 </body>
 </html>

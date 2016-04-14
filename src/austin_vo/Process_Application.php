@@ -12,9 +12,55 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Process Application</title>
+	<title>COP 4710 - Group 19 - Homepage</title>
+	<style>
+	body 
+	{
+		background-color: lightblue;
+	}
+
+	div {
+		border: 8px solid darkblue;
+		border-radius: 5px;
+		background-color: lightgray;
+		padding: 40px;
+	}
+
+	input[type=submit]:hover{ background-color: lightGreen;}
+
+	input[type=submit]{
+			width: 20%;
+			background-color: green;
+			color: white;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			}
+			
+	a[type=logout]{
+		width: 50%;
+		background-color: navy;
+		color: white;
+		padding: 5px 10px;
+		margin: 5px 0;
+		border: none;
+		border-radius: 4px;
+		cursor: pointer;
+	}
+	</style>
 </head>
+
 <body>
+	<div id="newSessionInfo">
+	<fieldset>
+	
+	<center>
+	
+	<form action='default.php'>
+		<button>Click this button to go back to the home page</button>
+	</form>
 
 	<?php
 		// Connecting to MySQL using mysqli
@@ -47,16 +93,16 @@ session_start();
 		,".$_GET["GTAworkingsemestercount"]." 
 		,".$_GET["totalGPA"]." );";
 		
-		echo nl2br($sql . "</br></br>");
+		//echo nl2br($sql . "</br></br>");
 		$result = $conn->query($sql);
 		
 		// If INSERT failed, then do not stop PHP and MySQL queries.
 		if(!$result) {
-			echo nl2br("Insert failed for applicant.</br></br>");
+			echo nl2br("<h1>Insert failed for applicant.</h1></br></br>");
 			exit();
 		}
 		
-		echo nl2br("Inserted successfully for new applicant.</br></br>");
+		//echo nl2br("Inserted successfully for new applicant.</h1></br></br>");
 		
 		// Query to insert into gtams.COMPLETED_COURSES.
 		for( $i = 1; $i <= $_SESSION['numCompletedCourses']; $i++ ) {
@@ -66,12 +112,12 @@ session_start();
 				, '".$_GET["Gradcourse$i"]."'
 				, '".$_GET["gradcourseChoice$i"]."');";
 			
-			echo nl2br($sql . "</br></br>");
+			//echo nl2br($sql . "</br></br>");
 			$result = $conn->query($sql);
 			
 			// If INSERT failed, then do not stop PHP and MySQL queries.
 			if(!$result) {
-				echo nl2br("Insert failed for applicant's completed courses.</br></br>");
+				echo nl2br("<h1>Insert failed for applicant's completed courses.</h1></br></br>");
 				exit();
 			}
 		}
@@ -85,12 +131,12 @@ session_start();
 				, '".$_GET["date$i"]."'
 				, '".$_GET["citation$i"]."');";
 			
-			echo nl2br($sql . "</br></br>");
+			//echo nl2br($sql . "</br></br>");
 			$result = $conn->query($sql);
 			
 			// If INSERT failed, then do not stop PHP and MySQL queries.
 			if(!$result) {
-				echo nl2br("Insert failed for applicant's publications.</br></br>");
+				echo nl2br("<h1>Insert failed for applicant's publications.</h1></br></br>");
 				exit();
 			}
 		}
@@ -104,14 +150,31 @@ session_start();
 				, '".$_GET["lname$i"]."'
 				, ".$_GET["timeSpent$i"].");";
 			
-			echo nl2br($sql . "</br></br>");
+			//echo nl2br($sql . "</br></br>");
 			$result = $conn->query($sql);
 			
 			// If INSERT failed, then do not stop PHP and MySQL queries.
 			if(!$result) {
-				echo nl2br("Insert failed for applicant's previous advisers.</br></br>");
+				echo nl2br("<h1>Insert failed for applicant's previous advisers.</h1></br></br>");
 				exit();
 			}
+		}
+		
+		// Query to insert into gtams.CURRENT_ADV.
+		$sql =
+			"INSERT INTO gtams.CURRENT_ADV
+			VALUES ('".$_GET["GTAPID"]."'
+			, '".$_GET["c_fname"]."'
+			, '".$_GET["c_lname"]."'
+			, ".$_GET["c_email"].");";
+		
+		//echo nl2br($sql . "</br></br>");
+		$result = $conn->query($sql);
+		
+		// If INSERT failed, then do not stop PHP and MySQL queries.
+		if(!$result) {
+			echo nl2br("<h1>Insert failed for applicant's current adviser.</h1></br></br>");
+			exit();
 		}
 		
 		// Query to insert into gtams.APPLICATION.
@@ -128,7 +191,7 @@ session_start();
 		, '".$_GET["date"]."'
 		, TRUE);";
 		
-		echo nl2br($sql . "</br></br>");
+		//echo nl2br($sql . "</br></br>");
 		$result = $conn->query($sql);
 		
 		// If INSERT failed, then do not stop PHP and MySQL queries.
@@ -137,9 +200,14 @@ session_start();
 			exit();
 		}
 		
-		echo nl2br("Successfully created new application.</br></br>");
+		echo nl2br("<h1>Successfully created new application.</h1></br></br>");
 		
 		mysqli_close($conn);
 	?>
+	
+	</center>
+	
+</fieldset>
+</div>
 </body>
 </html>
