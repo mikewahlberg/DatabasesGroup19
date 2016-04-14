@@ -1,4 +1,5 @@
 <?
+  $coursnum = coursecount;
   //Connect to SQL DB
   $link = mysql_connect("my host", "my user", "my password", "my db");
   if (!$link){
@@ -19,4 +20,8 @@
   mysql_query($link, "INSERT INTO PREVIOUS_ADV(PID, adv_first_name, adv_last_name, time_spent) VALUES(GTAPID, fname1, lname1, timespent1) ");
   mysql_query($link, "INSERT INTO PREVIOUS_ADV(PID, adv_first_name, adv_last_name, time_spent) VALUES(GTAPID, fname2, lname2, timespent2) ");
   mysql_query($link, "INSERT INTO PREVIOUS_ADV(PID, adv_first_name, adv_last_name, time_spent) VALUES(GTAPID, fname3, lname3, timespent3) ");
+  for ( $num = 0; $num<$coursenum; ++$num){
+    mysql_query($link, "INSERT INTO COMPLETED_COURSES (PID, course_id, grade) VALUES (Gradcourse . $num, grade . $num )");
+  }
+  
 ?>
