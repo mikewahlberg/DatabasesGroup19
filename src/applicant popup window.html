@@ -1,5 +1,27 @@
 <!doctype html>
 
+
+<style>
+
+body 
+{
+    background-color: lightblue;
+}
+
+fieldset {
+    border: 8px solid darkblue;
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 40px;
+}
+
+
+</style>
+
+
+<body>
+
+
 <h1>Information on nominee</h1><br>
  <?php
   $link = mysql_connect("my host", "my user", "my password", "my db");
@@ -23,3 +45,5 @@ Email address of applicant's Ph.D. advisor: <?php mysql_query($link, "SELECT CAD
 
 
 </fieldset>
+
+</body>
