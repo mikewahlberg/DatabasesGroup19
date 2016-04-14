@@ -1,5 +1,5 @@
 <?
-  $coursnum = coursecount;
+  $coursenum = coursecount;
   //Connect to SQL DB
   $link = mysql_connect("my host", "my user", "my password", "my db");
   if (!$link){
