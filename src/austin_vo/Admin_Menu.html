@@ -1,0 +1,110 @@
+<!--
+Group 19
+COP 4710
+Admin_Menu
+	Menu for administators to administrate the GTAMS database.
+-->
+<?php
+session_start();
+?>
+<!doctype html>
+
+<html>
+
+<style>
+
+body 
+{
+    background-color: lightblue;
+}
+
+div {
+    border: 8px solid darkblue;
+    border-radius: 5px;
+    background-color: lightgray;
+    padding: 40px;
+}
+
+input[type=submit]:hover{ background-color: lightGreen;}
+
+input[type=submit]{
+        width: 20%;
+        background-color: green;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        }
+        
+a[type=logout]{
+    
+        width: 50%;
+        background-color: navy;
+        color: white;
+        padding: 5px 10px;
+        margin: 5px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        
+
+}
+
+</style>
+
+
+<body>
+
+<h1 align="center"> Welcome System Administrator!</h1>
+<p align="center"> To choose an option, entire a value and click a button for the corresponding choice. </p>
+
+<div id="newSessionInfo">
+
+<fieldset>
+
+<legend> What do you want to do? </legend>
+<br>
+
+	<table align='center'>
+		<!--Form that creates GTA Sessions.-->
+		<form action="Admin_Create_Session.php" method="GET">
+		<tr>
+			<td>Create GTA Sessions:</td>
+			<td><input type="text" name="NumSessions"></td>
+			<td><input type="submit" value="Create Sessions"></td>
+		</tr>
+		</form>
+		
+		<!--Form that creates GC Members.-->
+		<form action="Admin_Create_GC.php" method="GET">
+		<tr>
+			<td>Create Graduate Committee members:</td>
+			<td><input type='text' name='NumGC'></td>
+			<td><input type="submit" value="Create GC"></td>
+		</tr>
+		</form>
+		
+		<!--
+		Form that creates Memberships.
+		Membership means what GC member will participate in what GTA session
+		-->
+		<form action="Admin_Create_Membership.php" method="GET">
+		<tr>
+			<td>Create Memberships</td>
+			<td><input type='text' name='NumMemberships'></td>
+			<td><input type="submit" value="Create Memberships"></td>
+		</tr>
+		</form>
+	</table>
+	
+</fieldset>
+
+</div>
+
+<br>
+<a href = "file:///C:/Users/Mark/Desktop/html%20files/login%20page%20WIP.html" type="logout" align="center"> Log Out </a>
+
+</body>
+</html>
