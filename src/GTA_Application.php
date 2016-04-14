@@ -2,12 +2,15 @@
 Group 19
 COP 4710
 4-13-2016
+Application.
+	Students fill out this application to apply for a GTA position.
 -->
 <?php
 session_start();
 $_SESSION['numCompletedCourses'] = $_GET['numCompletedCourses'];
 $_SESSION['numPublications'] = $_GET['numPublications'];
 $_SESSION['numPrevAdvisors'] = $_GET['numPrevAdvisors'];
+$_SESSION['selectedSession'] = $_GET['selectedSession'];
 ?>
 <!doctype html>
 

@@ -47,18 +47,18 @@ session_start();
 		,".$_GET["GTAworkingsemestercount"]." 
 		,".$_GET["totalGPA"]." );";
 		
-		echo nl2br($sql . '\n');
+		echo nl2br($sql . "</br></br>");
 		$result = $conn->query($sql);
 		
 		// If INSERT failed, then do not stop PHP and MySQL queries.
 		if(!$result) {
-			echo nl2br("Insert failed for applicant.\n");
+			echo nl2br("Insert failed for applicant.</br></br>");
 			exit();
 		}
 		
-		echo nl2br("Inserted successfully for new applicant.\n");
+		echo nl2br("Inserted successfully for new applicant.</br></br>");
 		
-		// Queries to insert into gtams.COMPLETED_COURSES.
+		// Query to insert into gtams.COMPLETED_COURSES.
 		for( $i = 1; $i <= $_SESSION['numCompletedCourses']; $i++ ) {
 			$sql =
 				"INSERT INTO gtams.completed_courses
@@ -66,17 +66,17 @@ session_start();
 				, '".$_GET["Gradcourse$i"]."'
 				, '".$_GET["gradcourseChoice$i"]."');";
 			
-			echo nl2br($sql . '\n');
+			echo nl2br($sql . "</br></br>");
 			$result = $conn->query($sql);
 			
 			// If INSERT failed, then do not stop PHP and MySQL queries.
 			if(!$result) {
-				echo nl2br("Insert failed for applicant's completed courses.\n");
+				echo nl2br("Insert failed for applicant's completed courses.</br></br>");
 				exit();
 			}
 		}
 		
-		// Queries to insert into gtams.PUBLISHED_PUB.
+		// Query to insert into gtams.PUBLISHED_PUB.
 		for( $i = 1; $i <= $_SESSION['numPublications']; $i++ ) {
 			$sql =
 				"INSERT INTO gtams.published_pub
@@ -85,17 +85,17 @@ session_start();
 				, '".$_GET["date$i"]."'
 				, '".$_GET["citation$i"]."');";
 			
-			echo nl2br($sql . '\n');
+			echo nl2br($sql . "</br></br>");
 			$result = $conn->query($sql);
 			
 			// If INSERT failed, then do not stop PHP and MySQL queries.
 			if(!$result) {
-				echo nl2br("Insert failed for applicant's publications.\n");
+				echo nl2br("Insert failed for applicant's publications.</br></br>");
 				exit();
 			}
 		}
 		
-		// Queries to insert into gtams.PREVIOUS_ADV.
+		// Query to insert into gtams.PREVIOUS_ADV.
 		for( $i = 1; $i <= $_SESSION['numPrevAdvisors']; $i++ ) {
 			$sql =
 				"INSERT INTO gtams.previous_adv
@@ -104,15 +104,40 @@ session_start();
 				, '".$_GET["lname$i"]."'
 				, ".$_GET["timeSpent$i"].");";
 			
-			echo nl2br($sql . '\n');
+			echo nl2br($sql . "</br></br>");
 			$result = $conn->query($sql);
 			
 			// If INSERT failed, then do not stop PHP and MySQL queries.
 			if(!$result) {
-				echo nl2br("Insert failed for applicant's previous advisers.\n");
+				echo nl2br("Insert failed for applicant's previous advisers.</br></br>");
 				exit();
 			}
 		}
+		
+		// Query to insert into gtams.APPLICATION.
+		$sql =
+		"INSERT INTO gtams.application
+		VALUES ('".$_SESSION["selectedSession"]."'
+		, '".$_GET["GTAPID"]."'
+		, 'OPEN'
+		, FALSE
+		, FALSE
+		, NULL
+		, NULL
+		, NULL
+		, '".$_GET["date"]."'
+		, TRUE);";
+		
+		echo nl2br($sql . "</br></br>");
+		$result = $conn->query($sql);
+		
+		// If INSERT failed, then do not stop PHP and MySQL queries.
+		if(!$result) {
+			echo nl2br("Failed to create application.</br></br>");
+			exit();
+		}
+		
+		echo nl2br("Successfully created new application.</br></br>");
 		
 		mysqli_close($conn);
 	?>
