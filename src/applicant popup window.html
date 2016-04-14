@@ -9,17 +9,17 @@
  ?>
 <fieldset>
 
-Name of applicant: <?php mysql_query($link, "SELECT stu_first_name, stu_last_name FROM APPLICANT WHERE PID=$_GET["pid"]") ?><br>
+Name of applicant: <?php mysql_query($link, "SELECT stu_first_name, stu_last_name FROM APPLICANT WHERE PID=$_GET["pid"]"); ?><br>
 PID of applicant: <?php $_GET["pid"] ?><br>
-Applicant's email: <?php mysql_query($link, "SELECT stu_email FROM APPLICANT WHERE PID=$_GET["pid"]") ?><br>
-Applicant's phone number: <?php mysql_query($link, "SELECT stu_phone FROM APPLICANT WHERE PID=$_GET["pid"]") ?><br>
-Number of semesters applicant has been a grad student: <br>
-Number of semesters applicant has worked as a GTA: <br>
-Courses completed by applicant: <br>
-Cumulative GPA for above courses: <br>
-Applicant's publications: <br>
-Applicant's Ph.D. advisor: <br>
-Email address of applicant's Ph.D. advisor: <br>
+Applicant's email: <?php mysql_query($link, "SELECT stu_email FROM APPLICANT WHERE PID=$_GET["pid"]"); ?><br>
+Applicant's phone number: <?php mysql_query($link, "SELECT stu_phone FROM APPLICANT WHERE PID=$_GET["pid"]"); ?><br>
+Number of semesters applicant has been a grad student: <?php mysql_query($link, "SELECT semesters_grad FROM APPLICANT WHERE PID=$_GET["pid"]"); ?> <br>
+Number of semesters applicant has worked as a GTA: <?php mysql_query($link, "SELECT semesters_GTA FROM APPLICANT WHERE PID=$_GET["pid"]"); ?><br>
+Courses completed by applicant: <?php mysql_query($link, "SELECT course_id FROM COMPLETED_COURSES WHERE PID=$_GET["pid"]"); ?><br>
+Cumulative GPA for above courses: <?php mysql_query($link, "SELECT GPA FROM APPLICANT WHERE PID=$_GET["pid"]"); ?><br>
+Applicant's publications: <?php mysql_query($link, "SELECT pub_title FROM PUBLISHED_PUB WHERE PID=$_GET["pid"]");?><br>
+Applicant's Ph.D. advisor: <?php mysql_query($link, "SELECT CADV.adv_first_name, CADV.adv_last_name FROM CURRENT_ADV AS CADV ON APP.PID = CADV.PID WHERE PID=$_GET["pid"]");?><br>
+Email address of applicant's Ph.D. advisor: <?php mysql_query($link, "SELECT CADV.adv_email FROM CURRENT_ADV AS CADV ON APP.PID = CADV.PID WHERE PID=$_GET["pid"]");?><br>
 
 
 </fieldset>
